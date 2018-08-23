@@ -1,0 +1,397 @@
+
+GccApplication2.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .data         00000000  00800100  00800100  000002a0  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  1 .text         0000022c  00000000  00000000  00000074  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  2 .bss          0000000c  00800100  00800100  000002a0  2**0
+                  ALLOC
+  3 .comment      00000030  00000000  00000000  000002a0  2**0
+                  CONTENTS, READONLY
+  4 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  000002d0  2**2
+                  CONTENTS, READONLY
+  5 .debug_aranges 00000040  00000000  00000000  0000030c  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_info   000009cd  00000000  00000000  0000034c  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_abbrev 00000864  00000000  00000000  00000d19  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_line   000003c9  00000000  00000000  0000157d  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_frame  00000098  00000000  00000000  00001948  2**2
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_str    000004a3  00000000  00000000  000019e0  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_loc    00000114  00000000  00000000  00001e83  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 12 .debug_ranges 00000030  00000000  00000000  00001f97  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	1d c0       	rjmp	.+58     	; 0x3c <__ctors_end>
+   2:	37 c0       	rjmp	.+110    	; 0x72 <__bad_interrupt>
+   4:	36 c0       	rjmp	.+108    	; 0x72 <__bad_interrupt>
+   6:	35 c0       	rjmp	.+106    	; 0x72 <__bad_interrupt>
+   8:	34 c0       	rjmp	.+104    	; 0x72 <__bad_interrupt>
+   a:	33 c0       	rjmp	.+102    	; 0x72 <__bad_interrupt>
+   c:	32 c0       	rjmp	.+100    	; 0x72 <__bad_interrupt>
+   e:	31 c0       	rjmp	.+98     	; 0x72 <__bad_interrupt>
+  10:	30 c0       	rjmp	.+96     	; 0x72 <__bad_interrupt>
+  12:	2f c0       	rjmp	.+94     	; 0x72 <__bad_interrupt>
+  14:	2e c0       	rjmp	.+92     	; 0x72 <__bad_interrupt>
+  16:	2d c0       	rjmp	.+90     	; 0x72 <__bad_interrupt>
+  18:	2c c0       	rjmp	.+88     	; 0x72 <__bad_interrupt>
+  1a:	2c c0       	rjmp	.+88     	; 0x74 <__vector_13>
+  1c:	2a c0       	rjmp	.+84     	; 0x72 <__bad_interrupt>
+  1e:	29 c0       	rjmp	.+82     	; 0x72 <__bad_interrupt>
+  20:	28 c0       	rjmp	.+80     	; 0x72 <__bad_interrupt>
+  22:	27 c0       	rjmp	.+78     	; 0x72 <__bad_interrupt>
+  24:	26 c0       	rjmp	.+76     	; 0x72 <__bad_interrupt>
+  26:	25 c0       	rjmp	.+74     	; 0x72 <__bad_interrupt>
+  28:	24 c0       	rjmp	.+72     	; 0x72 <__bad_interrupt>
+  2a:	23 c0       	rjmp	.+70     	; 0x72 <__bad_interrupt>
+  2c:	22 c0       	rjmp	.+68     	; 0x72 <__bad_interrupt>
+  2e:	21 c0       	rjmp	.+66     	; 0x72 <__bad_interrupt>
+  30:	20 c0       	rjmp	.+64     	; 0x72 <__bad_interrupt>
+  32:	1f c0       	rjmp	.+62     	; 0x72 <__bad_interrupt>
+  34:	1e c0       	rjmp	.+60     	; 0x72 <__bad_interrupt>
+  36:	1d c0       	rjmp	.+58     	; 0x72 <__bad_interrupt>
+  38:	1c c0       	rjmp	.+56     	; 0x72 <__bad_interrupt>
+  3a:	58 c0       	rjmp	.+176    	; 0xec <__vector_29>
+
+0000003c <__ctors_end>:
+  3c:	11 24       	eor	r1, r1
+  3e:	1f be       	out	0x3f, r1	; 63
+  40:	cf ef       	ldi	r28, 0xFF	; 255
+  42:	d2 e0       	ldi	r29, 0x02	; 2
+  44:	de bf       	out	0x3e, r29	; 62
+  46:	cd bf       	out	0x3d, r28	; 61
+
+00000048 <__do_copy_data>:
+  48:	11 e0       	ldi	r17, 0x01	; 1
+  4a:	a0 e0       	ldi	r26, 0x00	; 0
+  4c:	b1 e0       	ldi	r27, 0x01	; 1
+  4e:	ec e2       	ldi	r30, 0x2C	; 44
+  50:	f2 e0       	ldi	r31, 0x02	; 2
+  52:	02 c0       	rjmp	.+4      	; 0x58 <__do_copy_data+0x10>
+  54:	05 90       	lpm	r0, Z+
+  56:	0d 92       	st	X+, r0
+  58:	a0 30       	cpi	r26, 0x00	; 0
+  5a:	b1 07       	cpc	r27, r17
+  5c:	d9 f7       	brne	.-10     	; 0x54 <__do_copy_data+0xc>
+
+0000005e <__do_clear_bss>:
+  5e:	21 e0       	ldi	r18, 0x01	; 1
+  60:	a0 e0       	ldi	r26, 0x00	; 0
+  62:	b1 e0       	ldi	r27, 0x01	; 1
+  64:	01 c0       	rjmp	.+2      	; 0x68 <.do_clear_bss_start>
+
+00000066 <.do_clear_bss_loop>:
+  66:	1d 92       	st	X+, r1
+
+00000068 <.do_clear_bss_start>:
+  68:	ac 30       	cpi	r26, 0x0C	; 12
+  6a:	b2 07       	cpc	r27, r18
+  6c:	e1 f7       	brne	.-8      	; 0x66 <.do_clear_bss_loop>
+  6e:	bf d0       	rcall	.+382    	; 0x1ee <main>
+  70:	db c0       	rjmp	.+438    	; 0x228 <_exit>
+
+00000072 <__bad_interrupt>:
+  72:	c6 cf       	rjmp	.-116    	; 0x0 <__vectors>
+
+00000074 <__vector_13>:
+
+
+
+/*ADC Conversion Complete Interrupt Service Routine (ISR)*/
+ISR(ADC_vect)
+{
+  74:	1f 92       	push	r1
+  76:	0f 92       	push	r0
+  78:	0f b6       	in	r0, 0x3f	; 63
+  7a:	0f 92       	push	r0
+  7c:	11 24       	eor	r1, r1
+	//Buffer[0] = ADCH;			// Output ADCH to PortD
+	//Buffer[1] = ADCL;			// Output ADCH to PortD
+}
+  7e:	0f 90       	pop	r0
+  80:	0f be       	out	0x3f, r0	; 63
+  82:	0f 90       	pop	r0
+  84:	1f 90       	pop	r1
+  86:	18 95       	reti
+
+00000088 <setup>:
+
+void setup() {	
+	/*
+	* Setup All Needed I/O
+	*/
+	DDRB = 0x00; //Makes PORTB as Output
+  88:	17 ba       	out	0x17, r1	; 23
+	DDRA = 0x88;			// Configure PortA 1000 1000
+  8a:	88 e8       	ldi	r24, 0x88	; 136
+  8c:	8a bb       	out	0x1a, r24	; 26
+	
+	DIDR0 =0x07; // ADC0/1/2 digital input disabled
+  8e:	87 e0       	ldi	r24, 0x07	; 7
+  90:	80 93 60 00 	sts	0x0060, r24	; 0x800060 <__EEPROM_REGION_LENGTH__+0x7f0060>
+	/* Enable Interrupt */
+	sei();				// Enable Global Interrupts
+  94:	78 94       	sei
+	
+	/*
+	* Setup I2C slave
+	*/
+	TWSCRA = 1<<TWDIE | 1<<TWASIE | 1<<TWEN;
+  96:	88 e3       	ldi	r24, 0x38	; 56
+  98:	80 93 a5 00 	sts	0x00A5, r24	; 0x8000a5 <__EEPROM_REGION_LENGTH__+0x7f00a5>
+	TWSA = I2CAddress<<1;
+  9c:	82 e0       	ldi	r24, 0x02	; 2
+  9e:	80 93 a2 00 	sts	0x00A2, r24	; 0x8000a2 <__EEPROM_REGION_LENGTH__+0x7f00a2>
+  a2:	08 95       	ret
+
+000000a4 <readTempreture>:
+	
+	/*
+	* ADC Setup
+	*/
+	// PA0 is ADC0 input
+	ADCSRA = 0x83;			// Enable the ADC and its interrupt feature, 
+  a4:	83 e8       	ldi	r24, 0x83	; 131
+  a6:	85 b9       	out	0x05, r24	; 5
+	// and set the ACD clock pre-scalar to sysclk/16, not interrupt
+	ADCSRB = 0x00;			
+  a8:	14 b8       	out	0x04, r1	; 4
+	ADMUXA = 0x01;			// Select single ended line
+  aa:	81 e0       	ldi	r24, 0x01	; 1
+  ac:	89 b9       	out	0x09, r24	; 9
+	ADMUXB = 0x00; // VCC as Vref,
+  ae:	18 b8       	out	0x08, r1	; 8
+	// data registers and select ADC0 as input channel
+	for(int i=0; i<1; i++){
+		ADCSRA |= 1<<ADSC;		// Start Conversion
+  b0:	2e 9a       	sbi	0x05, 6	; 5
+		while ( ADCSRA & ( 1 << ADSC ) );//wait for conversion to end
+  b2:	2e 99       	sbic	0x05, 6	; 5
+  b4:	fe cf       	rjmp	.-4      	; 0xb2 <readTempreture+0xe>
+	}
+	Buffer[0] = ADCH;			// Output ADCH
+  b6:	87 b1       	in	r24, 0x07	; 7
+  b8:	90 e0       	ldi	r25, 0x00	; 0
+  ba:	e8 e0       	ldi	r30, 0x08	; 8
+  bc:	f1 e0       	ldi	r31, 0x01	; 1
+  be:	91 83       	std	Z+1, r25	; 0x01
+  c0:	80 83       	st	Z, r24
+	Buffer[1] = ADCL;			// Output ADCH
+  c2:	86 b1       	in	r24, 0x06	; 6
+  c4:	90 e0       	ldi	r25, 0x00	; 0
+  c6:	93 83       	std	Z+3, r25	; 0x03
+  c8:	82 83       	std	Z+2, r24	; 0x02
+	
+	adcResult = ADCL;
+  ca:	26 b1       	in	r18, 0x06	; 6
+  cc:	30 e0       	ldi	r19, 0x00	; 0
+  ce:	30 93 05 01 	sts	0x0105, r19	; 0x800105 <adcResult+0x1>
+  d2:	20 93 04 01 	sts	0x0104, r18	; 0x800104 <adcResult>
+	adcResult |= ADCH << 8;
+  d6:	87 b1       	in	r24, 0x07	; 7
+  d8:	38 2b       	or	r19, r24
+  da:	30 93 05 01 	sts	0x0105, r19	; 0x800105 <adcResult+0x1>
+  de:	20 93 04 01 	sts	0x0104, r18	; 0x800104 <adcResult>
+	
+	return 1023 - adcResult;
+}
+  e2:	8f ef       	ldi	r24, 0xFF	; 255
+  e4:	93 e0       	ldi	r25, 0x03	; 3
+  e6:	82 1b       	sub	r24, r18
+  e8:	93 0b       	sbc	r25, r19
+  ea:	08 95       	ret
+
+000000ec <__vector_29>:
+	-Otherwise the interrupt is a data interrupt:
+	-- If the address indicated a Master Read and there are more bytes to send, put the next byte in the data register, otherwise end the transaction.
+	-- If the address indicated a Master Write, read the next byte from the data buffer and display it, and send an ACK if we want to receive more bytes, otherwise a NACK.
+*/
+// TWI interrupt
+ISR(TWI_SLAVE_vect) {
+  ec:	1f 92       	push	r1
+  ee:	0f 92       	push	r0
+  f0:	0f b6       	in	r0, 0x3f	; 63
+  f2:	0f 92       	push	r0
+  f4:	11 24       	eor	r1, r1
+  f6:	2f 93       	push	r18
+  f8:	3f 93       	push	r19
+  fa:	8f 93       	push	r24
+  fc:	9f 93       	push	r25
+  fe:	ef 93       	push	r30
+ 100:	ff 93       	push	r31
+	//result = readTempreture();
+	if (TWSSRA & 1<<TWASIF) {              // Address received
+ 102:	80 91 a3 00 	lds	r24, 0x00A3	; 0x8000a3 <__EEPROM_REGION_LENGTH__+0x7f00a3>
+ 106:	86 ff       	sbrs	r24, 6
+ 108:	14 c0       	rjmp	.+40     	; 0x132 <__vector_29+0x46>
+		if (TWSSRA & 1<<TWDIR) {             // Master read
+ 10a:	80 91 a3 00 	lds	r24, 0x00A3	; 0x8000a3 <__EEPROM_REGION_LENGTH__+0x7f00a3>
+ 10e:	81 ff       	sbrs	r24, 1
+ 110:	08 c0       	rjmp	.+16     	; 0x122 <__vector_29+0x36>
+			Read = 0;
+ 112:	10 92 01 01 	sts	0x0101, r1	; 0x800101 <__data_end+0x1>
+ 116:	10 92 00 01 	sts	0x0100, r1	; 0x800100 <__data_end>
+			TWSCRB = 3<<TWCMD0;                // ACK
+ 11a:	83 e0       	ldi	r24, 0x03	; 3
+ 11c:	80 93 a4 00 	sts	0x00A4, r24	; 0x8000a4 <__EEPROM_REGION_LENGTH__+0x7f00a4>
+ 120:	5b c0       	rjmp	.+182    	; 0x1d8 <__vector_29+0xec>
+			} else {                             // Master write
+			Write = 0;                         // Reset pointer
+ 122:	10 92 03 01 	sts	0x0103, r1	; 0x800103 <Write+0x1>
+ 126:	10 92 02 01 	sts	0x0102, r1	; 0x800102 <Write>
+			TWSCRB = 3<<TWCMD0;                // ACK
+ 12a:	83 e0       	ldi	r24, 0x03	; 3
+ 12c:	80 93 a4 00 	sts	0x00A4, r24	; 0x8000a4 <__EEPROM_REGION_LENGTH__+0x7f00a4>
+ 130:	53 c0       	rjmp	.+166    	; 0x1d8 <__vector_29+0xec>
+		}
+		} else if (TWSSRA & 1<<TWDIF) {        // Data interrupt
+ 132:	80 91 a3 00 	lds	r24, 0x00A3	; 0x8000a3 <__EEPROM_REGION_LENGTH__+0x7f00a3>
+ 136:	88 23       	and	r24, r24
+ 138:	0c f0       	brlt	.+2      	; 0x13c <__vector_29+0x50>
+ 13a:	4e c0       	rjmp	.+156    	; 0x1d8 <__vector_29+0xec>
+		if (TWSSRA & 1<<TWDIR) {             // Master read
+ 13c:	80 91 a3 00 	lds	r24, 0x00A3	; 0x8000a3 <__EEPROM_REGION_LENGTH__+0x7f00a3>
+ 140:	81 ff       	sbrs	r24, 1
+ 142:	22 c0       	rjmp	.+68     	; 0x188 <__vector_29+0x9c>
+			if (Read < 2) {
+ 144:	80 91 00 01 	lds	r24, 0x0100	; 0x800100 <__data_end>
+ 148:	90 91 01 01 	lds	r25, 0x0101	; 0x800101 <__data_end+0x1>
+ 14c:	02 97       	sbiw	r24, 0x02	; 2
+ 14e:	c4 f4       	brge	.+48     	; 0x180 <__vector_29+0x94>
+				TWSD = Buffer[Read++];				
+ 150:	80 91 00 01 	lds	r24, 0x0100	; 0x800100 <__data_end>
+ 154:	90 91 01 01 	lds	r25, 0x0101	; 0x800101 <__data_end+0x1>
+ 158:	9c 01       	movw	r18, r24
+ 15a:	2f 5f       	subi	r18, 0xFF	; 255
+ 15c:	3f 4f       	sbci	r19, 0xFF	; 255
+ 15e:	30 93 01 01 	sts	0x0101, r19	; 0x800101 <__data_end+0x1>
+ 162:	20 93 00 01 	sts	0x0100, r18	; 0x800100 <__data_end>
+ 166:	88 0f       	add	r24, r24
+ 168:	99 1f       	adc	r25, r25
+ 16a:	fc 01       	movw	r30, r24
+ 16c:	e8 5f       	subi	r30, 0xF8	; 248
+ 16e:	fe 4f       	sbci	r31, 0xFE	; 254
+ 170:	80 81       	ld	r24, Z
+ 172:	91 81       	ldd	r25, Z+1	; 0x01
+ 174:	80 93 a0 00 	sts	0x00A0, r24	; 0x8000a0 <__EEPROM_REGION_LENGTH__+0x7f00a0>
+				TWSCRB = 3<<TWCMD0;				
+ 178:	83 e0       	ldi	r24, 0x03	; 3
+ 17a:	80 93 a4 00 	sts	0x00A4, r24	; 0x8000a4 <__EEPROM_REGION_LENGTH__+0x7f00a4>
+ 17e:	2c c0       	rjmp	.+88     	; 0x1d8 <__vector_29+0xec>
+			} else TWSCRB = 2<<TWCMD0;         // Complete transaction
+ 180:	82 e0       	ldi	r24, 0x02	; 2
+ 182:	80 93 a4 00 	sts	0x00A4, r24	; 0x8000a4 <__EEPROM_REGION_LENGTH__+0x7f00a4>
+ 186:	28 c0       	rjmp	.+80     	; 0x1d8 <__vector_29+0xec>
+		} else {                             // Master write
+			if (Write < 2) Buffer[Write++] = TWSD;
+ 188:	80 91 02 01 	lds	r24, 0x0102	; 0x800102 <Write>
+ 18c:	90 91 03 01 	lds	r25, 0x0103	; 0x800103 <Write+0x1>
+ 190:	02 97       	sbiw	r24, 0x02	; 2
+ 192:	ac f4       	brge	.+42     	; 0x1be <__vector_29+0xd2>
+ 194:	80 91 02 01 	lds	r24, 0x0102	; 0x800102 <Write>
+ 198:	90 91 03 01 	lds	r25, 0x0103	; 0x800103 <Write+0x1>
+ 19c:	9c 01       	movw	r18, r24
+ 19e:	2f 5f       	subi	r18, 0xFF	; 255
+ 1a0:	3f 4f       	sbci	r19, 0xFF	; 255
+ 1a2:	30 93 03 01 	sts	0x0103, r19	; 0x800103 <Write+0x1>
+ 1a6:	20 93 02 01 	sts	0x0102, r18	; 0x800102 <Write>
+ 1aa:	20 91 a0 00 	lds	r18, 0x00A0	; 0x8000a0 <__EEPROM_REGION_LENGTH__+0x7f00a0>
+ 1ae:	30 e0       	ldi	r19, 0x00	; 0
+ 1b0:	88 0f       	add	r24, r24
+ 1b2:	99 1f       	adc	r25, r25
+ 1b4:	fc 01       	movw	r30, r24
+ 1b6:	e8 5f       	subi	r30, 0xF8	; 248
+ 1b8:	fe 4f       	sbci	r31, 0xFE	; 254
+ 1ba:	31 83       	std	Z+1, r19	; 0x01
+ 1bc:	20 83       	st	Z, r18
+			if (Write < 2) TWSCRB = 3<<TWCMD0; // ACK
+ 1be:	80 91 02 01 	lds	r24, 0x0102	; 0x800102 <Write>
+ 1c2:	90 91 03 01 	lds	r25, 0x0103	; 0x800103 <Write+0x1>
+ 1c6:	02 97       	sbiw	r24, 0x02	; 2
+ 1c8:	24 f4       	brge	.+8      	; 0x1d2 <__vector_29+0xe6>
+ 1ca:	83 e0       	ldi	r24, 0x03	; 3
+ 1cc:	80 93 a4 00 	sts	0x00A4, r24	; 0x8000a4 <__EEPROM_REGION_LENGTH__+0x7f00a4>
+ 1d0:	03 c0       	rjmp	.+6      	; 0x1d8 <__vector_29+0xec>
+			else TWSCRB = 1<<TWAA | 2<<TWCMD0; // NACK and complete
+ 1d2:	86 e0       	ldi	r24, 0x06	; 6
+ 1d4:	80 93 a4 00 	sts	0x00A4, r24	; 0x8000a4 <__EEPROM_REGION_LENGTH__+0x7f00a4>
+		}
+	}
+}
+ 1d8:	ff 91       	pop	r31
+ 1da:	ef 91       	pop	r30
+ 1dc:	9f 91       	pop	r25
+ 1de:	8f 91       	pop	r24
+ 1e0:	3f 91       	pop	r19
+ 1e2:	2f 91       	pop	r18
+ 1e4:	0f 90       	pop	r0
+ 1e6:	0f be       	out	0x3f, r0	; 63
+ 1e8:	0f 90       	pop	r0
+ 1ea:	1f 90       	pop	r1
+ 1ec:	18 95       	reti
+
+000001ee <main>:
+
+int main(void)
+{
+	setup();
+ 1ee:	4c df       	rcall	.-360    	; 0x88 <setup>
+	while(1) //infinite loop
+	{
+		//PORTB = (1<<PINB0); //Turns ON All LEDs
+		PORTB &= ~(1 << PINB0);           // switch PD0 LED off		
+ 1f0:	c0 98       	cbi	0x18, 0	; 24
+		PORTA &= ~(1 << PINA7);           // switch PD0 LED off	
+ 1f2:	df 98       	cbi	0x1b, 7	; 27
+	#else
+		//round up by default
+		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
+	#endif
+
+	__builtin_avr_delay_cycles(__ticks_dc);
+ 1f4:	2f e9       	ldi	r18, 0x9F	; 159
+ 1f6:	86 e8       	ldi	r24, 0x86	; 134
+ 1f8:	91 e0       	ldi	r25, 0x01	; 1
+ 1fa:	21 50       	subi	r18, 0x01	; 1
+ 1fc:	80 40       	sbci	r24, 0x00	; 0
+ 1fe:	90 40       	sbci	r25, 0x00	; 0
+ 200:	e1 f7       	brne	.-8      	; 0x1fa <main+0xc>
+ 202:	00 c0       	rjmp	.+0      	; 0x204 <main+0x16>
+ 204:	00 00       	nop
+		_delay_ms(500); //1 second delay
+		//while ( ADCSRA & ( 1 << ADSC ) );//wait for conversion to end
+		result = readTempreture();
+ 206:	4e df       	rcall	.-356    	; 0xa4 <readTempreture>
+ 208:	90 93 07 01 	sts	0x0107, r25	; 0x800107 <result+0x1>
+ 20c:	80 93 06 01 	sts	0x0106, r24	; 0x800106 <result>
+		PORTB |=  (1 << PINB0);           // switch PD0 LED on
+ 210:	c0 9a       	sbi	0x18, 0	; 24
+		PORTA |= (1 << PINA7);           // switch PD0 LED off	
+ 212:	df 9a       	sbi	0x1b, 7	; 27
+ 214:	2f e9       	ldi	r18, 0x9F	; 159
+ 216:	86 e8       	ldi	r24, 0x86	; 134
+ 218:	91 e0       	ldi	r25, 0x01	; 1
+ 21a:	21 50       	subi	r18, 0x01	; 1
+ 21c:	80 40       	sbci	r24, 0x00	; 0
+ 21e:	90 40       	sbci	r25, 0x00	; 0
+ 220:	e1 f7       	brne	.-8      	; 0x21a <main+0x2c>
+ 222:	00 c0       	rjmp	.+0      	; 0x224 <main+0x36>
+ 224:	00 00       	nop
+ 226:	e4 cf       	rjmp	.-56     	; 0x1f0 <main+0x2>
+
+00000228 <_exit>:
+ 228:	f8 94       	cli
+
+0000022a <__stop_program>:
+ 22a:	ff cf       	rjmp	.-2      	; 0x22a <__stop_program>
